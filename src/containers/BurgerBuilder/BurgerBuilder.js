@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { Fragment, useState } from "react";
 import Burger from "../../components/Burger/Burger";
+import BuildControls from "../../components/Burger/BuildControls/BuildControls";
 
 function BurgerBuilder() {
   const [ingredients, setIngredients] = useState([
@@ -20,10 +21,33 @@ function BurgerBuilder() {
       quantity: 0,
     },
   ]);
+  const addIngredientHandler = (type) => {
+    const newIngredients = ingredients.map((ingredient) =>
+      ingredient.type === type
+        ? { ...ingredient, quantity: ingredient.quantity + 1 }
+        : ingredient
+    );
+    setIngredients(newIngredients);
+  };
+  const removeIngredientHandler = (type) => {
+    const newIngredients = ingredients.map((ingredient) =>
+      ingredient.type === type
+        ? {
+            ...ingredient,
+            quantity: ingredient.quantity > 0 ? ingredient.quantity - 1 : 0,
+          }
+        : ingredient
+    );
+    setIngredients(newIngredients);
+  };
   return (
-    <div>
+    <Fragment>
       <Burger ingredients={ingredients} />
-    </div>
+      <BuildControls
+        addIngredientHandler={addIngredientHandler}
+        removeIngredientHandler={removeIngredientHandler}
+      />
+    </Fragment>
   );
 }
 
