@@ -5,19 +5,19 @@ function BurgerBuilder() {
   const [ingredients, setIngredients] = useState([
     {
       type: "salad",
-      quantity: 1,
+      quantity: 0,
     },
     {
       type: "bacon",
-      quantity: 1,
+      quantity: 0,
     },
     {
       type: "cheese",
-      quantity: 1,
+      quantity: 0,
     },
     {
       type: "meat",
-      quantity: 2,
+      quantity: 0,
     },
   ]);
   return (
