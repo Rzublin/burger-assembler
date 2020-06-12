@@ -27,6 +27,7 @@ function BurgerBuilder() {
       price: 1.2,
     },
   ]);
+  const [isOrdered, setIsOrdered] = useState(false);
   const addIngredientHandler = (type) => {
     const newIngredients = ingredients.map((ingredient) =>
       ingredient.type === type
@@ -46,16 +47,22 @@ function BurgerBuilder() {
     );
     setIngredients(newIngredients);
   };
+  const orderBurger = () => {
+    setIsOrdered(true);
+  };
   return (
     <Fragment>
-      <Modal>
-        <OrderSummary ingredients={ingredients} />
-      </Modal>
+      {isOrdered && (
+        <Modal>
+          <OrderSummary ingredients={ingredients} />
+        </Modal>
+      )}
       <Burger ingredients={ingredients} />
       <BuildControls
         addIngredientHandler={addIngredientHandler}
         removeIngredientHandler={removeIngredientHandler}
         ingredients={ingredients}
+        orderBurger={orderBurger}
       />
     </Fragment>
   );

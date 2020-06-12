@@ -14,6 +14,7 @@ function BuildControls({
   ingredients,
   addIngredientHandler,
   removeIngredientHandler,
+  orderBurger,
 }) {
   return (
     <div className={styles.BuildControls}>
@@ -44,7 +45,11 @@ function BuildControls({
       {ingredients.reduce(
         (total, { quantity }) => total + Number(quantity),
         0
-      ) > 0 && <button className={styles.OrderButton}>ORDER NOW</button>}
+      ) > 0 && (
+        <button className={styles.OrderButton} onClick={orderBurger}>
+          ORDER NOW
+        </button>
+      )}
     </div>
   );
 }
@@ -53,6 +58,7 @@ BuildControls.propTypes = {
   ingredients: PropTypes.array.isRequired,
   addIngredientHandler: PropTypes.func.isRequired,
   removeIngredientHandler: PropTypes.func.isRequired,
+  orderBurger: PropTypes.func.isRequired,
 };
 
 export default BuildControls;
