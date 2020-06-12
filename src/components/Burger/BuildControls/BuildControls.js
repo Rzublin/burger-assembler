@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./BuildControls.module.css";
 import BuildControl from "./BuildControl/BuildControl";
+import PropTypes from "prop-types";
 
 const controls = [
   { label: "Salad", type: "salad" },
@@ -47,5 +48,11 @@ function BuildControls({
     </div>
   );
 }
+
+BuildControls.propTypes = {
+  ingredients: PropTypes.array.isRequired,
+  addIngredientHandler: PropTypes.func.isRequired,
+  removeIngredientHandler: PropTypes.func.isRequired,
+};
 
 export default BuildControls;

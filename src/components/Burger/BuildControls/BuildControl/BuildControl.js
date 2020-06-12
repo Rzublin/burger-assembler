@@ -35,6 +35,10 @@ function BuildControl({
 
 BuildControl.propTypes = {
   label: PropTypes.string.isRequired,
+  type: PropTypes.string.isRequired,
+  ingredients: PropTypes.array.isRequired,
+  addIngredientHandler: PropTypes.func.isRequired,
+  removeIngredientHandler: PropTypes.func.isRequired,
 };
 
 export default BuildControl;
