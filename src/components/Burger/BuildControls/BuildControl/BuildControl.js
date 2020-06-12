@@ -13,6 +13,12 @@ function BuildControl({
     <div className={styles.BuildControl}>
       <div className={styles.Label}>{label}</div>
       <button
+        onClick={() => addIngredientHandler(type)}
+        className={styles.More}
+      >
+        More
+      </button>
+      <button
         onClick={() => removeIngredientHandler(type)}
         className={styles.Less}
         disabled={
@@ -22,12 +28,6 @@ function BuildControl({
         }
       >
         Less
-      </button>
-      <button
-        onClick={() => addIngredientHandler(type)}
-        className={styles.More}
-      >
-        More
       </button>
     </div>
   );
