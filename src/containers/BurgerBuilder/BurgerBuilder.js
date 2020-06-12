@@ -7,18 +7,22 @@ function BurgerBuilder() {
     {
       type: "salad",
       quantity: 0,
+      price: 0.3,
     },
     {
       type: "bacon",
       quantity: 0,
+      price: 0.8,
     },
     {
       type: "cheese",
       quantity: 0,
+      price: 0.8,
     },
     {
       type: "meat",
       quantity: 0,
+      price: 1.2,
     },
   ]);
   const addIngredientHandler = (type) => {
@@ -46,6 +50,7 @@ function BurgerBuilder() {
       <BuildControls
         addIngredientHandler={addIngredientHandler}
         removeIngredientHandler={removeIngredientHandler}
+        ingredients={ingredients}
       />
     </Fragment>
   );

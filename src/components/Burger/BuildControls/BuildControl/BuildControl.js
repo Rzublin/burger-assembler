@@ -3,6 +3,7 @@ import styles from "./BuildControl.module.css";
 import PropTypes from "prop-types";
 
 function BuildControl({
+  ingredients,
   label,
   type,
   addIngredientHandler,
@@ -14,6 +15,11 @@ function BuildControl({
       <button
         onClick={() => removeIngredientHandler(type)}
         className={styles.Less}
+        disabled={
+          ingredients.filter(
+            (ingredient) => ingredient.type === type && ingredient.quantity > 0
+          ).length === 0
+        }
       >
         Less
       </button>
