@@ -50,10 +50,13 @@ function BurgerBuilder() {
   const orderBurger = () => {
     setIsOrdered(true);
   };
+  const cancelOrderBurger = () => {
+    setIsOrdered(false);
+  };
   return (
     <Fragment>
       {isOrdered && (
-        <Modal>
+        <Modal cancelOrderBurger={cancelOrderBurger}>
           <OrderSummary ingredients={ingredients} />
         </Modal>
       )}
