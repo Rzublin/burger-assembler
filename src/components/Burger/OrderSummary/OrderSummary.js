@@ -1,7 +1,8 @@
 import React, { Fragment } from "react";
 import PropTypes from "prop-types";
+import Button from "../../UI/Button/Button";
 
-function OrderSummary({ ingredients }) {
+function OrderSummary({ cancelOrderBurger, ingredients }) {
   return (
     <Fragment>
       <h3>Your Order</h3>
@@ -16,12 +17,17 @@ function OrderSummary({ ingredients }) {
           ))}
       </ul>
       <p>Continue to checkout?</p>
+      <Button buttonType="Success">CONTINUE</Button>
+      <Button buttonType="Danger" clicked={cancelOrderBurger}>
+        CANCEL
+      </Button>
     </Fragment>
   );
 }
 
 OrderSummary.propTypes = {
   ingredients: PropTypes.array.isRequired,
+  cancelOrderBurger: PropTypes.func.isRequired,
 };
 
 export default OrderSummary;

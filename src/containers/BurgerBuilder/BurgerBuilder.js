@@ -57,7 +57,10 @@ function BurgerBuilder() {
     <Fragment>
       {isOrdered && (
         <Modal cancelOrderBurger={cancelOrderBurger}>
-          <OrderSummary ingredients={ingredients} />
+          <OrderSummary
+            ingredients={ingredients}
+            cancelOrderBurger={cancelOrderBurger}
+          />
         </Modal>
       )}
       <Burger ingredients={ingredients} />
