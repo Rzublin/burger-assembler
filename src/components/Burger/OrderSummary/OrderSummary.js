@@ -2,7 +2,7 @@ import React, { Fragment } from "react";
 import PropTypes from "prop-types";
 import Button from "../../UI/Button/Button";
 
-function OrderSummary({ cancelOrderBurger, ingredients }) {
+function OrderSummary({ purchaseBurger, cancelOrderBurger, ingredients }) {
   return (
     <Fragment>
       <h3>Your Order</h3>
@@ -16,8 +16,23 @@ function OrderSummary({ cancelOrderBurger, ingredients }) {
             </li>
           ))}
       </ul>
+      <p>
+        Total Price:{" "}
+        <strong>
+          {ingredients
+            .reduce(
+              (total, { quantity, price }) =>
+                total + Number(quantity) * Number(price),
+              0
+            )
+            .toFixed(2)}{" "}
+          €
+        </strong>
+      </p>
       <p>Continue to checkout?</p>
-      <Button buttonType="Success">CONTINUE</Button>
+      <Button buttonType="Success" clicked={purchaseBurger}>
+        CONTINUE
+      </Button>
       <Button buttonType="Danger" clicked={cancelOrderBurger}>
         CANCEL
       </Button>
@@ -28,6 +43,7 @@ function OrderSummary({ cancelOrderBurger, ingredients }) {
 OrderSummary.propTypes = {
   ingredients: PropTypes.array.isRequired,
   cancelOrderBurger: PropTypes.func.isRequired,
+  purchaseBurger: PropTypes.func.isRequired,
 };
 
 export default OrderSummary;
