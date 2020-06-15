@@ -15,7 +15,7 @@ function Button({ children, buttonType, clicked }) {
 
 Button.propTypes = {
   buttonType: PropTypes.string.isRequired,
-  clicked: PropTypes.func.isRequired,
+  clicked: PropTypes.func,
 };
 
 export default Button;
