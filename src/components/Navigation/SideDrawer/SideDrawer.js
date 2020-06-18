@@ -1,20 +1,20 @@
 import React from "react";
-import styles from "./Toolbar.module.css";
+import styles from "./SideDrawer.module.css";
+
 import Logo from "../../Logo/Logo";
 import NavigationItems from "../NavigationItems/NavigationItems";
 
-function Toolbar() {
+function SideDrawer() {
   return (
-    <header className={styles.Toolbar}>
-      <div>Menu</div>
+    <div className={styles.SideDrawer}>
       <div className={styles.Logo}>
         <Logo />
       </div>
       <nav>
         <NavigationItems />
       </nav>
-    </header>
+    </div>
   );
 }
 
-export default Toolbar;
+export default SideDrawer;
