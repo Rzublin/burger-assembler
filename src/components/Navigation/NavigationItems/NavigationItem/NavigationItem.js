@@ -14,7 +14,7 @@ function NavigationItem({ children, link, active }) {
 
 NavigationItem.propTypes = {
   link: PropTypes.string.isRequired,
-  active: PropTypes.string,
+  active: PropTypes.bool,
 };
 
 export default NavigationItem;
