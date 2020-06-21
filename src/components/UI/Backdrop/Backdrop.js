@@ -1,8 +1,13 @@
 import React from "react";
 import styles from "./Backdrop.module.css";
+import PropTypes from "prop-types";
 
-function Backdrop({ cancelOrderBurger }) {
-  return <div className={styles.Backdrop} onClick={cancelOrderBurger}></div>;
+function Backdrop({ clicked }) {
+  return <div className={styles.Backdrop} onClick={clicked}></div>;
 }
+
+Backdrop.propTypes = {
+  clicked: PropTypes.func.isRequired,
+};
 
 export default Backdrop;
