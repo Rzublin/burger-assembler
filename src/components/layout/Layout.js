@@ -8,10 +8,13 @@ function Layout({ children }) {
   const closeSideDrawer = () => {
     setClosed(!closed);
   };
+  const openSideDrawer = () => {
+    setClosed(!closed);
+  };
   return (
     <Fragment>
-      <Toolbar />
-      {closed ? <SideDrawer closeSideDrawer={closeSideDrawer} /> : false}
+      <Toolbar openSideDrawer={openSideDrawer} />
+      {closed ? <SideDrawer closeSideDrawer={closeSideDrawer} /> : null}
       <main className={styles.content}>{children}</main>
     </Fragment>
   );

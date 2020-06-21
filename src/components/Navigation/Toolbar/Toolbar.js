@@ -3,10 +3,10 @@ import styles from "./Toolbar.module.css";
 import Logo from "../../Logo/Logo";
 import NavigationItems from "../NavigationItems/NavigationItems";
 
-function Toolbar() {
+function Toolbar({ openSideDrawer }) {
   return (
     <header className={styles.Toolbar}>
-      <div>Menu</div>
+      <div onClick={openSideDrawer}>Menu</div>
       <div className={styles.Logo}>
         <Logo />
       </div>
