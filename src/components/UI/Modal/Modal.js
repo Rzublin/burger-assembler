@@ -6,7 +6,7 @@ import PropTypes from "prop-types";
 function Modal({ children, cancelOrderBurger }) {
   return (
     <Fragment>
-      <Backdrop cancelOrderBurger={cancelOrderBurger} />
+      <Backdrop clicked={cancelOrderBurger} />
       <div className={styles.Modal}>{children}</div>
     </Fragment>
   );
