@@ -4,7 +4,7 @@ import Toolbar from "../Navigation/Toolbar/Toolbar";
 import SideDrawer from "../Navigation/SideDrawer/SideDrawer";
 
 function Layout({ children }) {
-  const [closed, setClosed] = useState(true);
+  const [closed, setClosed] = useState(false);
   const closeSideDrawer = () => {
     setClosed(!closed);
   };
