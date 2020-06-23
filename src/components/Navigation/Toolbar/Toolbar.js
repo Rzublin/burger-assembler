@@ -7,7 +7,11 @@ import PropTypes from "prop-types";
 function Toolbar({ openSideDrawer }) {
   return (
     <header className={styles.Toolbar}>
-      <div onClick={openSideDrawer}>Menu</div>
+      <div onClick={openSideDrawer} className={styles.DrawerToggle}>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
       <div className={styles.Logo}>
         <Logo />
       </div>
