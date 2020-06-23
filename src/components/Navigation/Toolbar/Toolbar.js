@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./Toolbar.module.css";
 import Logo from "../../Logo/Logo";
 import NavigationItems from "../NavigationItems/NavigationItems";
+import PropTypes from "prop-types";
 
 function Toolbar({ openSideDrawer }) {
   return (
@@ -16,5 +17,9 @@ function Toolbar({ openSideDrawer }) {
     </header>
   );
 }
+
+Toolbar.propTypes = {
+  openSideDrawer: PropTypes.func.isRequired,
+};
 
 export default Toolbar;
