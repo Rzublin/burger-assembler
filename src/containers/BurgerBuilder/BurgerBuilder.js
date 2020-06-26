@@ -4,6 +4,7 @@ import BuildControls from "../../components/Burger/BuildControls/BuildControls";
 import Modal from "../../components/UI/Modal/Modal";
 import OrderSummary from "../../components/Burger/OrderSummary/OrderSummary";
 import axios from "../../axios-orders";
+import Spinner from "../../components/UI/Spinner/Spinner";
 
 function BurgerBuilder() {
   const [ingredients, setIngredients] = useState([
@@ -29,6 +30,7 @@ function BurgerBuilder() {
     },
   ]);
   const [isOrdered, setIsOrdered] = useState(false);
+  const [loadingOrder, setLoadingOrder] = useState(false);
   const addIngredientHandler = (type) => {
     const newIngredients = ingredients.map((ingredient) =>
       ingredient.type === type
@@ -76,20 +78,31 @@ function BurgerBuilder() {
       },
       deliveryMethod: "fastest",
     };
+    setLoadingOrder(true);
     axios
       .post("/orders.json", order)
-      .then((response) => console.log(response))
-      .catch((error) => console.log(error));
+      .then((response) => {
+        setLoadingOrder(false);
+        console.log(response);
+      })
+      .catch((error) => {
+        setLoadingOrder(false);
+        console.log(error);
+      });
   };
   return (
     <Fragment>
       {isOrdered && (
         <Modal cancelOrderBurger={cancelOrderBurger}>
-          <OrderSummary
-            ingredients={ingredients}
-            cancelOrderBurger={cancelOrderBurger}
-            purchaseBurger={purchaseBurger}
-          />
+          {loadingOrder ? (
+            <Spinner />
+          ) : (
+            <OrderSummary
+              ingredients={ingredients}
+              cancelOrderBurger={cancelOrderBurger}
+              purchaseBurger={purchaseBurger}
+            />
+          )}
         </Modal>
       )}
       <Burger ingredients={ingredients} />
